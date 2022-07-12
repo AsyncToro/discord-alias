@@ -3,9 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/AsyncToro/discord-alias/bot"
 	"github.com/AsyncToro/discord-alias/config"
-
 )
 
 var (
@@ -20,7 +18,13 @@ func main() {
 		return
 	}
 
-	err = bot.Start()
+	_, errrr := newStore()
+	if errrr != nil {
+		fmt.Println(errrr.Error())
+		return
+	}
+
+	err = startBot()
 	if err != nil {
 		fmt.Println("error starting bot")
 		fmt.Println(err.Error())

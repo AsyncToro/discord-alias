@@ -1,4 +1,4 @@
-package bot
+package main
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ var (
 	discord *discordgo.Session
 )
 
-func Start() error {
+func startBot() error {
 	discord, err := discordgo.New("Bot " + config.Token)
 
 	if err != nil {
